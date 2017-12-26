@@ -1,16 +1,16 @@
-From df88b5ed40f7285c5994bf384e4b9f2052afd191 Mon Sep 17 00:00:00 2001
+From a284de529b1fc6d32f6c0a3f06ca93e34d45aaef Mon Sep 17 00:00:00 2001
 From: Andreas Blaesius <skate4life@gmx.de>
 Date: Tue, 26 Dec 2017 10:41:46 +0100
 Subject: [PATCH] Chromium: use startpage searchengine by default
 
 ---
- .../search_engines/prepopulated_engines.json       |  12 +-
+ .../search_engines/prepopulated_engines.json       |  11 +-
  components/search_engines/search_engine_type.h     |   1 +
  .../template_url_prepopulate_data.cc               | 218 ++++++++++-----------
- 3 files changed, 121 insertions(+), 110 deletions(-)
+ 3 files changed, 120 insertions(+), 110 deletions(-)
 
 diff --git a/components/search_engines/prepopulated_engines.json b/components/search_engines/prepopulated_engines.json
-index 2fbe236..27fe3e1 100644
+index 2fbe236..935cb52 100644
 --- a/components/search_engines/prepopulated_engines.json
 +++ b/components/search_engines/prepopulated_engines.json
 @@ -10,7 +10,7 @@
@@ -22,7 +22,7 @@ index 2fbe236..27fe3e1 100644
  //    89, 91+
  //
  // IDs > 1000 are reserved for distribution custom engines.
-@@ -219,6 +219,16 @@
+@@ -219,6 +219,15 @@
        "id": 56
      },
  
@@ -31,7 +31,6 @@ index 2fbe236..27fe3e1 100644
 +      "keyword": "startpage.com",
 +      "favicon_url": "https://www.startpage.com/favicon.ico",
 +      "search_url": "https://www.startpage.com/do/dsearch?query={searchTerms}&language=auto",
-+      "suggest_url": "https://www.startpage.com/cgi-bin/csuggest?query={searchTerms}&limit=10&format=jso",
 +      "type": "SEARCH_ENGINE_STARTPAGE",
 +      "id": 47
 +    },
@@ -52,7 +51,7 @@ index 02f6b16..8df48741 100644
  };
  
 diff --git a/components/search_engines/template_url_prepopulate_data.cc b/components/search_engines/template_url_prepopulate_data.cc
-index f255e1b..03c02b6 100644
+index f255e1b..a36c547 100644
 --- a/components/search_engines/template_url_prepopulate_data.cc
 +++ b/components/search_engines/template_url_prepopulate_data.cc
 @@ -50,549 +50,549 @@ namespace {
