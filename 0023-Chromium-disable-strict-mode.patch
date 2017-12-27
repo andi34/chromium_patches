@@ -1,0 +1,24 @@
+From 84649ac34a5287becd35f73720c68f8c053ace28 Mon Sep 17 00:00:00 2001
+From: Andreas Blaesius <skate4life@gmx.de>
+Date: Wed, 27 Dec 2017 14:46:51 +0100
+Subject: [PATCH] Chromium: disable strict mode
+
+---
+ .../android/java/src/org/chromium/chrome/browser/ChromeStrictMode.java   | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/chrome/android/java/src/org/chromium/chrome/browser/ChromeStrictMode.java b/chrome/android/java/src/org/chromium/chrome/browser/ChromeStrictMode.java
+index 6cf5dd6..7e65e38 100644
+--- a/chrome/android/java/src/org/chromium/chrome/browser/ChromeStrictMode.java
++++ b/chrome/android/java/src/org/chromium/chrome/browser/ChromeStrictMode.java
+@@ -173,7 +173,6 @@ public class ChromeStrictMode {
+         CommandLine commandLine = CommandLine.getInstance();
+         if ("eng".equals(Build.TYPE)
+                 || BuildConfig.DCHECK_IS_ON
+-                || ChromeVersionInfo.isLocalBuild()
+                 || commandLine.hasSwitch(ChromeSwitches.STRICT_MODE)) {
+             turnOnDetection(threadPolicy, vmPolicy);
+             addDefaultPenalties(threadPolicy, vmPolicy);
+-- 
+2.7.4
+
