@@ -1,7 +1,7 @@
-From a284de529b1fc6d32f6c0a3f06ca93e34d45aaef Mon Sep 17 00:00:00 2001
+From cf37202b6fee9866d012640a887ee76f6ca72310 Mon Sep 17 00:00:00 2001
 From: Andreas Blaesius <skate4life@gmx.de>
 Date: Tue, 26 Dec 2017 10:41:46 +0100
-Subject: [PATCH] Chromium: use startpage searchengine by default
+Subject: [PATCH 12/13] Chromium: use startpage searchengine by default
 
 ---
  .../search_engines/prepopulated_engines.json       |  11 +-
@@ -10,7 +10,7 @@ Subject: [PATCH] Chromium: use startpage searchengine by default
  3 files changed, 120 insertions(+), 110 deletions(-)
 
 diff --git a/components/search_engines/prepopulated_engines.json b/components/search_engines/prepopulated_engines.json
-index 2fbe236..935cb52 100644
+index 5dbbe0e..1658d42 100644
 --- a/components/search_engines/prepopulated_engines.json
 +++ b/components/search_engines/prepopulated_engines.json
 @@ -10,7 +10,7 @@
@@ -22,7 +22,7 @@ index 2fbe236..935cb52 100644
  //    89, 91+
  //
  // IDs > 1000 are reserved for distribution custom engines.
-@@ -219,6 +219,15 @@
+@@ -223,6 +223,15 @@
        "id": 56
      },
  
@@ -51,10 +51,10 @@ index 02f6b16..8df48741 100644
  };
  
 diff --git a/components/search_engines/template_url_prepopulate_data.cc b/components/search_engines/template_url_prepopulate_data.cc
-index f255e1b..a36c547 100644
+index d287c4f0..cb6d5d2 100644
 --- a/components/search_engines/template_url_prepopulate_data.cc
 +++ b/components/search_engines/template_url_prepopulate_data.cc
-@@ -50,549 +50,549 @@ namespace {
+@@ -51,549 +51,549 @@ namespace {
  
  // Default (for countries with no better engine set)
  const PrepopulatedEngine* const engines_default[] = {
